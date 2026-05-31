@@ -1,0 +1,19 @@
+# Visual Studio / MSBuild
+.vs/
+build/
+*.user
+*.suo
+*.aps
+*.pch
+*.pdb
+*.ilk
+*.obj
+*.exe
+*.log
+
+# Generated
+[Bb]in/
+[Oo]bj/
+x64/
+Debug/
+Release/
