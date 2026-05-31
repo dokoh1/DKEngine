@@ -6,8 +6,15 @@
 
 | Phase | 문서 | 한 줄 요약 |
 |------|------|-----------|
-| 0 | [Phase00_Setup.md](Phase00_Setup.md) | 개발 환경·빌드 시스템·프로젝트 구조·git 세팅과 그 이유 |
+| 0 | [Phase00_Setup.md](Phase00_Setup.md) | 개발 환경·빌드 시스템·프로젝트 구조·git 세팅과 그 이유 (MSVC/SDK, VS솔루션/CMake 설명 포함) |
 | 1 | [Phase01_Win32Window.md](Phase01_Win32Window.md) | Win32 창 + 게임 루프. WndProc-객체 연결, PeekMessage 루프 해설 |
+
+## 개념 정리 ([concepts/](concepts/README.md))
+특정 Phase에 묶이지 않는 일반 개발 지식.
+
+| # | 문서 | 한 줄 요약 |
+|---|------|-----------|
+| 01 | [concepts/01_Compile_and_Build.md](concepts/01_Compile_and_Build.md) | 컴파일 vs 빌드의 차이, 전처리→컴파일→링크 전체 흐름 |
 
 > 전체 로드맵은 상위 폴더의 [`ROADMAP.md`](../ROADMAP.md), 빌드/실행은 [`QUICKSTART.md`](../QUICKSTART.md) 참고.
 
