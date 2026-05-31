@@ -6,5 +6,6 @@ Phase 노트가 "이번에 무엇을 했나"라면, 여기는 "그 바탕이 되
 | # | 문서 | 한 줄 요약 |
 |---|------|-----------|
 | 01 | [01_Compile_and_Build.md](01_Compile_and_Build.md) | 컴파일 vs 빌드의 차이, 전처리→컴파일→링크 전체 흐름 |
+| 02 | [02_CPP_Class_and_Object_Model.md](02_CPP_Class_and_Object_Model.md) | C++ 클래스: 숨은 this, new가 필수가 아닌 이유, 값 vs 포인터 (C#·C 비교) |
 
 > Phase별 개발 노트는 상위 [`docs/README.md`](../README.md) 참고.

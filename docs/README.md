@@ -15,6 +15,7 @@
 | # | 문서 | 한 줄 요약 |
 |---|------|-----------|
 | 01 | [concepts/01_Compile_and_Build.md](concepts/01_Compile_and_Build.md) | 컴파일 vs 빌드의 차이, 전처리→컴파일→링크 전체 흐름 |
+| 02 | [concepts/02_CPP_Class_and_Object_Model.md](concepts/02_CPP_Class_and_Object_Model.md) | C++ 클래스: 숨은 this, new가 필수가 아닌 이유, 값 vs 포인터 |
 
 > 전체 로드맵은 상위 폴더의 [`ROADMAP.md`](../ROADMAP.md), 빌드/실행은 [`QUICKSTART.md`](../QUICKSTART.md) 참고.
 
