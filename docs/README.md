@@ -8,6 +8,14 @@
 |------|------|-----------|
 | 0 | [Phase00_Setup.md](Phase00_Setup.md) | 개발 환경·빌드 시스템·프로젝트 구조·git 세팅과 그 이유 (MSVC/SDK, VS솔루션/CMake 설명 포함) |
 | 1 | [Phase01_Win32Window.md](Phase01_Win32Window.md) | Win32 창 + 게임 루프. WndProc-객체 연결, PeekMessage 루프 해설 |
+| 2 | [Phase02_D3D12Clear.md](Phase02_D3D12Clear.md) | D3D12 초기화. 디바이스/스왑체인/RTV/커맨드 큐/펜스로 화면 클리어 |
+
+## 아키텍처
+
+- [Architecture.md](Architecture.md) — 현재 모듈 경계와 Phase 2 이후 RHI 분리 기준
+- [DevelopmentRules.md](DevelopmentRules.md) — Phase별 코드 주석, 문서 갱신, 검증 규칙
+- [PIX_Usage.md](PIX_Usage.md) — PIX on Windows 설치 확인과 GPU Capture 사용법
+- [DirectX12Study/](DirectX12Study/README.md) — DirectX 12 개념을 기능별로 누적 정리
 
 ## 개념 정리 ([concepts/](concepts/README.md))
 특정 Phase에 묶이지 않는 일반 개발 지식.

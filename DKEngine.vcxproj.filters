@@ -7,6 +7,9 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{93995380-89BD-4B04-88EB-625FBE52EBFB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\RHI">
+      <UniqueIdentifier>{C5D92F93-9F4A-4B58-B687-CE08F937AA46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -18,6 +21,9 @@
     <ClCompile Include="src\Core\Window.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\RHI\D3D12Renderer.cpp">
+      <Filter>Source Files\RHI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Application.h">
@@ -28,6 +34,12 @@
     </ClInclude>
     <ClInclude Include="src\Core\Log.h">
       <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\WindowsMinimal.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RHI\D3D12Renderer.h">
+      <Filter>Source Files\RHI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

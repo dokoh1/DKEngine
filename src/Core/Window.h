@@ -1,42 +1,57 @@
 #pragma once
 //==============================================================================
-// Window.h - Win32 윈도우 래퍼 (Phase 1)
-//
-// 운영체제 창 하나를 만들고, 게임 루프에서 메시지를 처리하는 책임만 담당한다.
-// 렌더링/게임 로직은 여기에 두지 않는다(관심사 분리).
+// Window.h - Win32 윈도우 래퍼
+// [Phase 1] 창 생성, 메시지 처리, 종료/리사이즈 상태 관리.
+// [Phase 2] D3D12Renderer가 사용할 HWND와 클라이언트 크기 제공.
 //==============================================================================
-#include <Windows.h>
+#include "WindowsMinimal.h"
 
 namespace dk {
 
 class Window
 {
 public:
-    // 창을 생성한다. 실패 시 false.
+    // [Phase 1] Win32 창 리소스 수명 관리.
+    Window() = default;
+    ~Window();
+
+    // [Phase 1] HWND 중복 소유를 막기 위해 복사 금지.
+    Window(const Window&) = delete;
+    Window& operator=(const Window&) = delete;
+
+    // [Phase 1] Win32 창 생성.
     bool Create(const wchar_t* title, int width, int height, HINSTANCE hInstance);
+
+    // [Phase 1] Win32 창과 등록한 window class 정리.
     void Destroy();
 
-    // 큐에 쌓인 윈도우 메시지를 모두 처리한다(비블로킹).
-    // 종료(WM_QUIT)가 요청되면 false 를 반환한다.
+    // [Phase 1] PeekMessage 기반 비블로킹 메시지 처리.
     bool ProcessMessages();
 
+    // [Phase 2] D3D12Renderer가 스왑체인을 만들 때 필요한 OS 창 핸들이다.
     HWND Handle() const { return m_hwnd; }
+
+    // [Phase 2] 스왑체인 백버퍼 크기와 리사이즈 기준으로 쓰는 클라이언트 영역 크기다.
     int  Width()  const { return m_width; }
     int  Height() const { return m_height; }
 
 private:
-    // WndProc 는 C 함수 포인터라서 멤버 함수를 직접 등록할 수 없다.
-    // 그래서 "static 함수에서 HWND 에 저장해 둔 this 포인터를 꺼내
-    // 멤버 함수(HandleMessage)로 넘기는" 표준 패턴을 사용한다.
+    // [Phase 1] Win32 C 콜백을 C++ 객체 멤버 함수로 연결하는 함수들.
     static LRESULT CALLBACK WndProcSetup(HWND, UINT, WPARAM, LPARAM);
     static LRESULT CALLBACK WndProcThunk(HWND, UINT, WPARAM, LPARAM);
     LRESULT HandleMessage(HWND, UINT, WPARAM, LPARAM);
 
+    // [Phase 1] Win32 창 핸들과 클래스 등록 상태.
     HWND       m_hwnd      = nullptr;
     HINSTANCE  m_hInstance = nullptr;
+    bool       m_classRegistered = false;
+
+    // [Phase 1] WM_SIZE에서 갱신되는 클라이언트 크기.
+    // [Phase 2] D3D12Renderer의 SwapChain ResizeBuffers 기준으로 사용.
     int        m_width     = 0;
     int        m_height    = 0;
 
+    // [Phase 1] RegisterClassExW/CreateWindowExW에서 공유하는 window class 이름.
     static constexpr const wchar_t* kClassName = L"DKEngineWindowClass";
 };
 
